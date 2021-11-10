@@ -33,6 +33,7 @@ public class Player extends AppCompatActivity
         this.username = username;
     }
 
-    // brain method
+    // brain method;
     // toString if necessary
+
 } // end com.example.tictactoe_blackteam2021.Player parent class
