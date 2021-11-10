@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeScreen" >
+    tools:context=".HomeScreen"
+    android:background="#daf5f1">
 
     <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/gameTitleTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tic-Tac-Toe"
-        android:textSize="50dp"
+        android:textSize="75dp"
         android:textAlignment="center" />
 
     <TextView
@@ -22,4 +24,29 @@
         android:text="By Marc, Alexyss, Mario, and Sofia"
         android:textSize="24dp"
         android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/oneVsOneBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="25dp"
+        android:layout_weight="1"
+        android:backgroundTint="#009688"
+        android:text="2 Players"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/oneVsBotBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="1"
+        android:backgroundTint="#009688"
+        android:text="1 V Bot"
+        android:textSize="40dp" />
 </LinearLayout>
