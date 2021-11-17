@@ -18,17 +18,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/A0Btn"
+            android:id="@+id/btn00"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/A1Btn"
+            android:id="@+id/btn01"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/A2Btn"
+            android:id="@+id/btn02"
             android:layout_width="100dp"
             android:layout_height="100dp" />
     </LinearLayout>
@@ -39,17 +39,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/B0Btn"
+            android:id="@+id/btn10"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/B1Btn"
+            android:id="@+id/btn11"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/B2Btn"
+            android:id="@+id/btn12"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
@@ -61,17 +61,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/C0Btn"
+            android:id="@+id/btn20"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/C1Btn"
+            android:id="@+id/btn21"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/C2Btn"
+            android:id="@+id/btn22"
             android:layout_width="99dp"
             android:layout_height="100dp" />
     </LinearLayout>
