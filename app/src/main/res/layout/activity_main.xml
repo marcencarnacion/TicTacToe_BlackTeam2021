@@ -20,17 +20,20 @@
         <Button
             android:id="@+id/btn00"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn01"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn02"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
@@ -41,17 +44,20 @@
         <Button
             android:id="@+id/btn10"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn11"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn12"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
     </LinearLayout>
 
@@ -63,17 +69,20 @@
         <Button
             android:id="@+id/btn20"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn21"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text=""/>
 
         <Button
             android:id="@+id/btn22"
-            android:layout_width="99dp"
-            android:layout_height="100dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
     </LinearLayout>
 
 </LinearLayout>
