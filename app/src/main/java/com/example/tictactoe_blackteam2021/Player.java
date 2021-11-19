@@ -5,18 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Player extends AppCompatActivity
 {
     // instance variables
-    private int turn;
+    private boolean turn;
     private String username;
 
     // constructor
-    public Player (int turn, String username)
+    public Player (boolean turn, String username)
     {
         this.turn = turn;
         this.username = username;
     } // end com.example.tictactoe_blackteam2021.Player constructor
 
     // getters and setters
-    public int getTurn ()
+    public boolean getTurn ()
     {
         return turn;
     }
@@ -24,7 +24,7 @@ public class Player extends AppCompatActivity
     {
         return username;
     }
-    public void setTurn (int turn)
+    public void setTurn (boolean turn)
     {
         this.turn = turn;
     }
