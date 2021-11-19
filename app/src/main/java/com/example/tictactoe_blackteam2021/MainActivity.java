@@ -58,15 +58,18 @@ public class MainActivity extends AppCompatActivity
             if(player1.getTurn())
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
+                resetBoard();
             }
             else
             {
                 Toast.makeText(this, "Player 2 Wins", Toast.LENGTH_SHORT).show();
+                resetBoard();
             }
         }
         else if(turnCount == 9)
         {
-            
+            Toast.makeText(this, "It's a draw", Toast.LENGTH_SHORT).show();
+            resetBoard();
         }
         else
         {
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //checks if a player has won
     private boolean checkForWin()
     {
         String[][] field = new String[3][3];
@@ -114,4 +118,18 @@ public class MainActivity extends AppCompatActivity
         }
         return false;
     }
+
+    //resets the board
+    private void resetBoard()
+    {
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                buttons[i][j].setText("");
+            }
+        }
+
+        turnCount = 0;
+        player1.setTurn(true);
+    }
+
 }
