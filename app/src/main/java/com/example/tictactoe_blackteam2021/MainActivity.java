@@ -45,17 +45,36 @@ public class MainActivity extends AppCompatActivity
         if(player1.getTurn() == true)
         {
             ((Button) v).setText("x");
-            player1.setTurn(false);
         }
         else
         {
             ((Button) v).setText("o");
-            player1.setTurn(true);
         }
 
         turnCount++;
+
+        if(checkForWin())
+        {
+            if(player1.getTurn())
+            {
+                Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "Player 2 Wins", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if(turnCount == 9)
+        {
+            
+        }
+        else
+        {
+            player1.setTurn(!player1.getTurn());
+            player2.setTurn(!player2.getTurn());
+        }
     }
-/*
+
     private boolean checkForWin()
     {
         String[][] field = new String[3][3];
@@ -67,7 +86,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        //checks columns
+        //checks rows
         for(int i = 0; i < 3; i++)
         {
             if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
@@ -75,7 +94,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         }
-        //checks rows
+        //checks columns
         for(int i = 0; i < 3; i++)
         {
             if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals(""))
@@ -84,6 +103,15 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+        if(field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals(""))
+        {
+            return true;
+        }
+
+        if(field[0][2].equals(field[1][1]) && field[0][2].equals(field[2][0]) && !field[0][2].equals(""))
+        {
+            return true;
+        }
+        return false;
     }
-*/
 }
