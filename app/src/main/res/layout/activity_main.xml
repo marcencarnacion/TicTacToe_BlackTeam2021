@@ -10,7 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tic Tac Toe" />
+        android:text="             Tic Tac Toe"
+        android:textSize="34sp"
+        android:textAlignment="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,6 +36,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:text=""/>
+
+        <Button
+            android:id="@+id/btn03"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -59,11 +68,17 @@
             android:layout_height="100dp"
             android:text=""/>
 
+        <Button
+            android:id="@+id/btn13"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
@@ -83,6 +98,44 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:text=""/>
+
+        <Button
+            android:id="@+id/btn23"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn30"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/btn31"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/btn32"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/btn33"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""/>
+
     </LinearLayout>
 
 </LinearLayout>
