@@ -11,8 +11,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
 {
 
-    private Button[][] buttons = new Button[3][3];
+    private Button[][] buttons = new Button[4][4];
     private int turnCount;
+
+    // attempting committing logic again
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //sets btnID to buttons array
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 4; j++) {
                 String btnID = "btn" + i + j;
                 int resID = getResources().getIdentifier(btnID, "id", getPackageName());
                 buttons[i][j] = findViewById(resID);
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity
                 resetBoard();
             }
         }
-        else if(turnCount == 9)
+        else if(turnCount == 16)
         {
             Toast.makeText(this, "It's a draw", Toast.LENGTH_SHORT).show();
             resetBoard();
@@ -81,38 +83,38 @@ public class MainActivity extends AppCompatActivity
     //checks if a player has won
     private boolean checkForWin()
     {
-        String[][] field = new String[3][3];
+        String[][] field = new String[4][4];
 
         //sets field array to text of buttons array
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
                 field[i][j] = buttons[i][j].getText().toString();
             }
         }
 
         //checks rows
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 4; i++)
         {
-            if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
+            if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && field[i][0].equals(field[i][3]) && !field[i][0].equals(""))
             {
                 return true;
             }
         }
         //checks columns
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 4; i++)
         {
-            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals(""))
+            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && field[0][i].equals(field[3][i]) && !field[0][i].equals(""))
             {
                 return true;
             }
         }
 
-        if(field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals(""))
+        if(field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && field[0][0].equals(field[3][3]) && !field[0][0].equals(""))
         {
             return true;
         }
 
-        if(field[0][2].equals(field[1][1]) && field[0][2].equals(field[2][0]) && !field[0][2].equals(""))
+        if(field[0][3].equals(field[1][2]) && field[0][3].equals(field[2][1]) && field[0][3].equals(field[3][0]) && !field[0][3].equals(""))
         {
             return true;
         }
@@ -122,8 +124,8 @@ public class MainActivity extends AppCompatActivity
     //resets the board
     private void resetBoard()
     {
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
                 buttons[i][j].setText("");
             }
         }
