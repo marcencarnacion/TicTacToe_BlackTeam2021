@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
 
         if(checkForWin())
         {
-            if(player1.getTurn())
+            if (player1.getTurn())
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
