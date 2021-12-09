@@ -2,8 +2,8 @@ package com.example.tictactoe_blackteam2021;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity
 
     private Button[][] buttons = new Button[4][4];
     private int turnCount;
-
+    String winner;
     // attempting committing logic again
 
     @Override
@@ -61,11 +61,15 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
+                winner = "Player 1 is the winner";
+                Log.i("info", getWinner());
             }
             else
             {
                 Toast.makeText(this, "Player 2 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
+                winner = "Player 2 is the winner";
+                Log.i("info", getWinner());
             }
         }
         else if(turnCount == 16)
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity
             player1.setTurn(!player1.getTurn());
             player2.setTurn(!player2.getTurn());
         }
+    }
+
+    private String getWinner()
+    {
+        return winner;
     }
 
     //checks if a player has won
