@@ -2,16 +2,21 @@ package com.example.tictactoe_blackteam2021;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
 
     private Button[][] buttons = new Button[4][4];
+    private TextView player1TV;
+    private TextView player2TV;
     private int turnCount;
     String winner;
     // attempting committing logic again
@@ -21,6 +26,13 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        player1TV = (TextView) findViewById(R.id.p1TV);
+        player2TV = (TextView) findViewById(R.id.p2TV);
+
+        // initially have player1 GREEN and p2 black
+        player2TV.setTextColor(Color.parseColor("#000000"));
+        player1TV.setTextColor(Color.parseColor("#00FF00"));
 
         //sets btnID to buttons array
         for (int i = 0; i < 4; i++){
@@ -47,17 +59,21 @@ public class MainActivity extends AppCompatActivity
         if(player1.getTurn() == true)
         {
             ((Button) v).setText("x");
+            player1TV.setTextColor(Color.parseColor("#000000"));
+            player2TV.setTextColor(Color.parseColor("#00FF00"));
         }
         else
         {
             ((Button) v).setText("o");
+            player2TV.setTextColor(Color.parseColor("#000000"));
+            player1TV.setTextColor(Color.parseColor("#00FF00"));
         }
 
         turnCount++;
 
         if(checkForWin())
         {
-            if(player1.getTurn())
+            if (player1.getTurn())
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
@@ -141,6 +157,10 @@ public class MainActivity extends AppCompatActivity
 
         turnCount = 0;
         player1.setTurn(true);
+
+        // initially p1 green and p2 black
+        player2TV.setTextColor(Color.parseColor("#000000"));
+        player1TV.setTextColor(Color.parseColor("#00FF00"));
     }
 
 }
