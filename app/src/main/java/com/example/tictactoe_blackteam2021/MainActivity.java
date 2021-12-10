@@ -1,24 +1,20 @@
 package com.example.tictactoe_blackteam2021;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
 
     private Button[][] buttons = new Button[4][4];
-    private TextView player1TV;
-    private TextView player2TV;
     private int turnCount;
-    String winner;
+
     // attempting committing logic again
 
     @Override
@@ -26,13 +22,6 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        player1TV = (TextView) findViewById(R.id.p1TV);
-        player2TV = (TextView) findViewById(R.id.p2TV);
-
-        // initially have player1 GREEN and p2 black
-        player2TV.setTextColor(Color.parseColor("#000000"));
-        player1TV.setTextColor(Color.parseColor("#00FF00"));
 
         //sets btnID to buttons array
         for (int i = 0; i < 4; i++){
@@ -59,33 +48,25 @@ public class MainActivity extends AppCompatActivity
         if(player1.getTurn() == true)
         {
             ((Button) v).setText("x");
-            player1TV.setTextColor(Color.parseColor("#000000"));
-            player2TV.setTextColor(Color.parseColor("#00FF00"));
         }
         else
         {
             ((Button) v).setText("o");
-            player2TV.setTextColor(Color.parseColor("#000000"));
-            player1TV.setTextColor(Color.parseColor("#00FF00"));
         }
 
         turnCount++;
 
         if(checkForWin())
         {
-            if (player1.getTurn())
+            if(player1.getTurn())
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
-                winner = "Player 1 is the winner";
-                Log.i("info", getWinner());
             }
             else
             {
                 Toast.makeText(this, "Player 2 Wins", Toast.LENGTH_SHORT).show();
                 resetBoard();
-                winner = "Player 2 is the winner";
-                Log.i("info", getWinner());
             }
         }
         else if(turnCount == 16)
@@ -98,11 +79,6 @@ public class MainActivity extends AppCompatActivity
             player1.setTurn(!player1.getTurn());
             player2.setTurn(!player2.getTurn());
         }
-    }
-
-    private String getWinner()
-    {
-        return winner;
     }
 
     //checks if a player has won
@@ -149,18 +125,26 @@ public class MainActivity extends AppCompatActivity
     //resets the board
     private void resetBoard()
     {
-        for(int i = 0; i < 4; i++) {
-            for(int j = 0; j < 4; j++) {
-                buttons[i][j].setText("");
+        //place it in here
+        //prompt the dialogue box
+        AlertDialog.Builder builder = new AlertDialog.Builder();
+        builder.setMessage(R.string.winner_declaration + R.string.loser_declaration + R.string.replay_message)
+                .setPositiveButton(R.string.fire, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // FIRE ZE MISSILES!
+                    }
+                })
+        // Create the AlertDialog object and return it
+        return builder.create();
+        //if yes is clicked then this code will run
+            for(int i = 0; i < 4; i++) {
+                for(int j = 0; j < 4; j++) {
+                    buttons[i][j].setText("");
+                }
             }
-        }
 
-        turnCount = 0;
-        player1.setTurn(true);
-
-        // initially p1 green and p2 black
-        player2TV.setTextColor(Color.parseColor("#000000"));
-        player1TV.setTextColor(Color.parseColor("#00FF00"));
+            turnCount = 0;
+            player1.setTurn(true);
     }
 
 }
