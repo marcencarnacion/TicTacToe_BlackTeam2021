@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TicTacToe_BlackTeam2021</string>
+    <string name="winner_declaration">The winner is....</string>
+    <string name="loser_declaration">The loser is....</string>
+    <string name="replay_message">Would you like to replay?</string>
+    <string name="ComfirmReplay">Yes</string>
 </resources>

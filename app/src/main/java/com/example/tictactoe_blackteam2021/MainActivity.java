@@ -1,8 +1,11 @@
 package com.example.tictactoe_blackteam2021;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,22 +79,23 @@ public class MainActivity extends AppCompatActivity
             if (player1.getTurn())
             {
                 Toast.makeText(this, "Player 1 Wins", Toast.LENGTH_SHORT).show();
-                resetBoard();
-                winner = "Player 1 is the winner";
+                winner = "Player 1";
+                promptResetBoard();
                 Log.i("info", getWinner());
             }
             else
             {
                 Toast.makeText(this, "Player 2 Wins", Toast.LENGTH_SHORT).show();
-                resetBoard();
-                winner = "Player 2 is the winner";
+                winner = "Player 2";
+                promptResetBoard();
                 Log.i("info", getWinner());
             }
         }
         else if(turnCount == 16)
         {
             Toast.makeText(this, "It's a draw", Toast.LENGTH_SHORT).show();
-            resetBoard();
+            winner = "No one";
+            promptResetBoard();
         }
         else
         {
@@ -147,7 +151,24 @@ public class MainActivity extends AppCompatActivity
     }
 
     //resets the board
-    private void resetBoard()
+    public void promptResetBoard()
+    {
+        //place it in here
+        //prompt the dialogue box
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("The winner is...." + getWinner() + ". Do you want to replay?");
+                builder.setPositiveButton(R.string.ComfirmReplay, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //if yes is clicked then this code will run
+                        resetBoard();
+                    }
+                });
+        // Create the AlertDialog object and return it
+        AlertDialog promptReplay = builder.create();
+        promptReplay.show();
+    }
+
+    public void resetBoard()
     {
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
